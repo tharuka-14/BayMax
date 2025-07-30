@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BayMax - Personal Health Companion</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Left Sidebar -->
+  <div class="sidebar left-sidebar">
+    <div class="item"><a href="index.html" class="sidebar-link"><i class="fas fa-home"></i> Home</a></div>
+    <div class="item"><a href="browse.html" class="sidebar-link"><i class="fas fa-search"></i> Explore</a></div>
+    <div class="item"><a href="details.html" class="sidebar-link"><i class="fas fa-info-circle"></i> Details</a></div>
+    <div class="item"><a href="streams.html" class="sidebar-link"><i class="fas fa-comments"></i> Messages</a></div>
+    <div class="item"><a href="profile.html" class="sidebar-link"><i class="fas fa-user"></i> Profile</a></div>
+    <div class="item"><a href="chatsettings.html" class="sidebar-link"><i class="fas fa-cog"></i> Settings</a></div>
+  </div>
+  
+  
+
+  <!-- Main Content Area with Padding -->
+  <div class="padding-area">
+    <!-- Main Chat Container -->
+    <div class="chat-container">
+      <!-- Header -->
+      <div class="chat-header">
+        <div class="profile-info">
+          <h2>Hi! I'm Baymax</h2>
+          <p>Your Personal Health Care Companion</p>
+          <div class="stats">
+            <span>10K</span>
+            <span>Review</span>
+          </div><br>
+          <div class="tags">
+            <div class="tag-box">AI Companion</div>
+            <div class="tag-box">Emotional Support</div>
+            <div class="tag-box">Healthcare</div>
+            <div class="tag-box">Medical Advice</div>
+          </div>
+          <p>Healthcare companion offering medical advice and support.</p>
+        </div>
+      </div>
+
+      <!-- Messages -->
+      <div class="chat-box" id="chat-box">
+        <div class="message ai">
+          <strong>Baymax:</strong> Hello, I am Baymax, Your personal health care companion. How can I assist you today?
+        </div>
+      </div>
+
+      <!-- Quick Replies -->
+      <div class="quick-replies">
+        <button>I have a headache, what should I do?</button>
+        <button>Can you tell me about stress management?</button>
+        <button>What's the best way to treat a cold?</button>
+        <button>How can I improve my sleep quality?</button>
+      </div>
+
+      <!-- Footer -->
+      <div class="chat-footer">
+        <div class="message-input">
+          <i class="fas fa-paperclip attach-icon" onclick="showNotification('Attachment icon clicked')"></i>
+          <input type="text" id="message-input" placeholder="Type your message">
+          <i class="fas fa-microphone mic-icon" onclick="showNotification('Microphone icon clicked')"></i>
+          <!-- Inline SVG for paper plane -->
+<button onclick="sendMessage()" style="background: none; border: none; cursor: pointer;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M15.5 0.5l-15 7 5.5 2 2 5.5 7-15zM6.49 8.38L1.64 6.64l11.69-5.45L6.49 8.38zM9.76 9.76L14.56 2.06l-5.45 11.7L9.76 9.76z"/>
+  </svg>
+</button>
+
+        </div>
+        <a href="incall.html">
+          <i class="fas fa-phone call-icon"></i>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Sidebar -->
+  <div class="sidebar right-sidebar">
+    <h3>Chats</h3>
+    <div class="item"><i class="fas fa-user"></i>Baymax</div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("message-input");
+      const chatBox = document.getElementById("chat-box");
+
+      if (input.value.trim()) {
+        // User message
+        const userMessage = document.createElement("div");
+        userMessage.classList.add("message", "user");
+        userMessage.innerHTML = "<strong>You:</strong> " + input.value;
+        chatBox.appendChild(userMessage);
+
+        // AI reply
+        const aiMessage = document.createElement("div");
+        aiMessage.classList.add("message", "ai");
+        aiMessage.innerHTML = "<strong>Baymax:</strong> Thank you for your message! I'm here to assist you.";
+        chatBox.appendChild(aiMessage);
+
+        // Clear input field
+        input.value = "";
+
+        // Scroll to the top of the chat container (scroll up)
+        chatBox.scrollTop = 0;
+      }
+    }
+
+    function showNotification(message) {
+      alert(message);
+    }
+  </script>
+</body>
+</html>
